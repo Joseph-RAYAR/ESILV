@@ -3,9 +3,13 @@
 > gcloud config set project peak-eon-510814-m4
 >
 > gcloud compute ssh cloudopt-vm1 --zone=europe-west1-b
+
 **To Start VM from terminal**
+
 >gcloud compute instances start cloudopt-vm1 cloudopt-vm2 cloudopt-vm3 --zone=europe-west1-b
+
 **To Stop VM from terminal**
+
 >gcloud compute instances stop cloudopt-vm1 cloudopt-vm2 cloudopt-vm3 --zone=europe-west1-b
 
 > gcloud compute instances list **To list the Instance vm**
