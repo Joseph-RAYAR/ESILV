@@ -1,8 +1,15 @@
 **Gcp Command to connect from ubuntu**
-
+>
+> gcloud config set project peak-eon-510814-m4
+>
 > gcloud compute ssh cloudopt-vm1 --zone=europe-west1-b
 >
+>
 Step 2 Inside GCP 
+
+> su - rayarjosephd
+>
+> cd ~/cloud-optimization
 
 >sudo apt update
 
