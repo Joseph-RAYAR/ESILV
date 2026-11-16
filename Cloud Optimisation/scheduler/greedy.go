@@ -115,7 +115,6 @@ func run() error {
 		return fmt.Errorf("no VMs found")
 	}
 
-	// Greedy least-loaded assignment (No sorting beforehand)
 	var assignments [][]string
 	for _, t := range tasks {
 		minIdx := 0
@@ -139,14 +138,14 @@ func run() error {
 		}
 	}
 
-	execTimeMs := time.Since(start).Milliseconds()
+	execTimeMs := float64(time.Since(start).Nanoseconds()) / 1e6
 
 	if exportPath != "" {
 		f, err := os.OpenFile(exportPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err == nil {
 			writer := csv.NewWriter(f)
 			fi, _ := f.Stat()
-			if fi.Size() == 0 {
+			if fi.Size() == 0 { 
 				writer.Write([]string{"algorithm", "dataset", "run", "scheduler_time_ms", "predicted_makespan_s", "actual_makespan_s", "vm1_s", "vm2_s", "vm3_s"})
 			}
 			vm1, vm2, vm3 := 0.0, 0.0, 0.0
@@ -158,9 +157,9 @@ func run() error {
 				"Greedy",
 				filepath.Base(tasksPath),
 				"1",
-				fmt.Sprintf("%d", execTimeMs),
+				fmt.Sprintf("%.3f", execTimeMs),
 				fmt.Sprintf("%.4f", predictedMakespan),
-				"",
+				"", 
 				fmt.Sprintf("%.4f", vm1),
 				fmt.Sprintf("%.4f", vm2),
 				fmt.Sprintf("%.4f", vm3),
