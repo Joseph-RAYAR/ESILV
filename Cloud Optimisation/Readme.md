@@ -12,7 +12,9 @@
 
 >gcloud compute instances stop cloudopt-vm1 cloudopt-vm2 cloudopt-vm3 --zone=europe-west1-b
 
-> gcloud compute instances list **To list the Instance vm**
+ **To list the Instance vm**
+
+> gcloud compute instances list
 <img width="469" height="53" alt="image" src="https://github.com/user-attachments/assets/c47a557d-ddcf-4f83-ab27-4d6e9e38e0fe" />
 
 >
