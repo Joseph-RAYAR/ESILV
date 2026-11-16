@@ -103,3 +103,11 @@ chmod +x scripts/run_all.sh
 
 
 
+
+## Project Overview (TD1 to TD4)
+Here is the step-by-step progression of the cloud optimization architecture built in this project:
+
+* **TD1 (Local Baseline):** Set up a local Linux environment, compiled Go workloads (CPU, memory, matrix, sort), and built a bash script (`benchmark.sh`) to measure local execution time and memory footprint (`benchmark_local.csv`).
+* **TD2 (Cloud Migration):** Provisioned a Google Compute Engine VM (`cloudopt-vm1`), transferred the project, and ran the same benchmarks in the cloud (`benchmark_cloud_vm1.csv`) to compare local vs. cloud hardware performance.
+* **TD3 (Distributed Orchestration):** Scaled to a cluster of three worker VMs. Created a manual CSV allocation and built orchestrator scripts (`run_task.sh` and `run_all.sh`) that use background SSH processes (`&`) to launch multiple tasks concurrently across the VMs and collect the logs.
+* **TD4 (Automated Scheduling):** Replaced the manual CSV with an automated scheduler. Wrote a Go program (`round_robin.go`) that reads available tasks and machines, generates an allocation CSV using a Round-Robin sequence, and feeds it seamlessly into the TD3 orchestrator.
